@@ -1,17 +1,25 @@
 {
-  "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
-  "name": "redcouch",
-  "description": "A client that stores data in both CouchDB and Redis.",
-  "version": "0.0.2",
+  "author": "David Björklund <david.bjorklund@gmail.com> (http://www.davidbjorklund.se)",
+  "name": "redriak",
+  "description": "A client that stores data in both Riak and Redis. A port of Mikeal's redcouch (http://github.com/mikeal/redcouch)",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mikeal/redcouch.git"
+    "url": "git://github.com/kesla/redriak.git"
   },
   "main": "index.js",
   "dependencies": {
-    "couch": "*",
+    "riak-js": "*",
     "redis": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "async": "*"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "contributors": [
+    {
+      "name": "Mikeal Rogers",
+      "email": "mikeal.rogers@gmail.com",
+      "url": "http://www.mikealrogers.com"
+    }
+  ]
 }
