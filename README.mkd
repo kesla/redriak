@@ -1,24 +1,28 @@
-# redcouch -- A client that stores data in both CouchDB and Redis.
+# redriak -- A client that stores data in both Riak and Redis.
 
 ## Install
 
 <pre>
-  npm install redcouch
+  npm install redriak
 </pre>
 
 Or from source:
 
 <pre>
-  git clone git://github.com/mikeal/redcouch.git 
-  cd redcouch
+  git clone git://github.com/kesla/redriak.git 
+  cd redriak
   npm link
 </pre>
 
 ## Usage
 
 ```javascript
-var redcouch = require('redcouch')
-  , red = redcouch('http://localhost:5984/shortened')
+var redriak = require('redriak')
+  , red = redriak({
+    host: 127.0.0.1 // default value
+    , port: 8098 // default value
+    , bucket: 'redis' // must be set
+  })
   ;
   
 red.set('key', 'value', function (e) {
@@ -31,7 +35,7 @@ red.set('key', 'value', function (e) {
 })
 ```
 
-## redcouch(couchurl,[redisoptions])
+## redcouch(riakoptions,[redisoptions])
 
 By default redcouch will connect to a localhost Redis on the default port.
 
@@ -41,9 +45,11 @@ Available Redis options are: `host`, `port`, and `select`. The `select` option w
 
 Fills the Redis database with all the key/value pairs from the Couch database.
 
-```
-var redcouch = require('redcouch')
-  , red = redcouch('http://localhost:5984/shortened')
+```javascript
+var redriak = require('redriak')
+  , red = redriak({
+    bucket: 'redis'
+  })
   ;
 red.prime(function (e) {
   if (e) throw e
@@ -66,6 +72,6 @@ Defaults to false. When set to false set callbacks will be resolved after the ke
 
 Redis client, uses @mranney's wonderful node-redis library.
 
-## red.couch
+## red.riak
 
-Couch client, uses @mikeal's couch library.
+Couch client, uses @frank06's riak library.
